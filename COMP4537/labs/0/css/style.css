@@ -1,0 +1,152 @@
+/* =========================================================
+   Root Variables
+   Define button width and height for easy adjustment
+========================================================= */
+:root {
+  --btn-h: 5em;   /* Height of memory buttons */
+  --btn-w: 10em;  /* Width of memory buttons */
+}
+
+/* =========================================================
+   Global Styles
+   Apply box-sizing and font defaults
+========================================================= */
+* { 
+  box-sizing: border-box; 
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* =========================================================
+   Controls and Status
+   Center align the header input and status text
+========================================================= */
+.controls, .status {
+  text-align: center;
+  width: 100%;
+}
+
+/* =========================================================
+   App Header
+   Sticky top header containing controls and status
+========================================================= */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;   /* White header background */
+  color: #000;        /* Black text */
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* =========================================================
+   Count Label and Input
+   Style the label and input for the number of tiles
+========================================================= */
+#countLabel {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+#countInput {
+  width: 8rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+/* =========================================================
+   Status Display
+   Text to show messages to the player
+========================================================= */
+.status {
+  margin-top: 0.5rem;
+  min-height: 1.5rem; /* Reserve space even when empty */
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+}
+
+/* =========================================================
+   Go Button
+   Start a new game
+========================================================= */
+.go-btn {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 0.6rem;
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.go-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   Arena (Game Area)
+   Container for memory buttons; flexible layout for
+   center alignment and responsive wrapping
+========================================================= */
+.arena {
+  display: flex;
+  left: 0;
+  right: 0;
+  top: 6rem; /* leave space for header */
+  bottom: 0;
+  height: calc(100vh - 6rem); /* prevent scrolling */
+  overflow: hidden;
+  background: #f8fafc; /* light background for tiles */
+  flex-wrap: wrap;       /* wrap buttons to multiple lines if needed */
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  gap: 8px;               /* space between tiles */
+}
+
+/* =========================================================
+   Row Layout
+   Used in older flex row stages (optional)
+========================================================= */
+.row-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* =========================================================
+   Memory Button
+   Individual button tile styles
+========================================================= */
+.memory-btn {
+  position: absolute; /* default for scramble stage */
+  width: var(--btn-w);
+  height: var(--btn-h);
+  border: 0;
+  border-radius: 0.75rem;
+  color: #111;
+  font-size: 1.25rem;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  user-select: none; /* prevent text selection */
+}
+
+/* Disabled button state */
+.memory-btn.disabled {
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Revealed button state (shows outline) */
+.memory-btn.revealed {
+  outline: 3px solid #111;
+}

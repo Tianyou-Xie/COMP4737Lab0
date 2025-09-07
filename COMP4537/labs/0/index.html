@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="controls">
+      <label for="countInput" id="countLabel"></label>
+      <input id="countInput" type="number" min="3" max="7" step="1" />
+      <button id="startBtn" class="go-btn" aria-label="Start a new game"></button>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </header>
+
+  <main id="arena" class="arena" aria-label="Game Arena"></main>
+
+  <script type="module" src="./js/script.js"></script>
+</body>
+
+</html>
